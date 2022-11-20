@@ -1,0 +1,25 @@
+.title{
+    margin-top: 0rem;
+    padding: 1rem 3rem; /* relleno */
+    font-size: 5rem; /* Tamano */
+    border: none; 
+    font-weight: 550; /*  */
+    color: white;
+    background-color: rgb(105, 249, 103); 
+}
+
+.button-start{
+    padding: 1rem 3rem; /* relleno */
+    margin-top: 10rem;
+    font-size: 1.5rem; /* Tamano */
+    border-radius: 10px; /* borde redondo */
+    border: none;
+    font-weight: 550;
+    color: white;
+    background-color: #a3a3a3;
+    box-shadow: 0 px 6px #000000a8; /* sombra izquierda abajo color */
+}
+
+.backgroud{
+    background-image: url("../../imagenes/Logo.png");
+}

@@ -1,0 +1,33 @@
+.navbar-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 125px;
+    align-items: center;
+    background-color: rgb(105, 249, 103);
+    color: white;
+}
+
+.navbar-links-container {
+    display: flex;
+    justify-content: space-around;
+    width: 15vw;
+    margin-left: 10rem;
+}
+
+.navbar-title{
+    font-weight: 550;
+}
+
+.navbar-li{
+    list-style-type: none;
+}
+
+.navbar-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(75, 99, 255);
+}
+
+.active{
+    color: black
+}

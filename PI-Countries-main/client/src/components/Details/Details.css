@@ -1,0 +1,36 @@
+.country-info{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    background: rgba(183, 180, 180, 0.278);
+    border-radius: 5px;
+    border: solid rgba(0, 255, 85, 0.758) 2px;
+    transition: all 0.25s;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    height: 500px;
+    margin-left: 9rem;
+}
+
+.detail-flag{
+    width: 500px;
+    height: 300px;
+    margin-right: 50px;
+}
+
+.country-activity{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+}
+
+.table{
+    border-style: solid;
+}
+
+.allTable{
+    border-style: solid;
+    width: 80%;
+}
