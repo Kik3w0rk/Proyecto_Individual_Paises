@@ -4,13 +4,15 @@ import { getCountryName, getCountryContinent, cleanInputName, cleanInputContinen
 import { getActivities, getCountriesActivity, cleanInputActivity } from "../../redux/actions";
 import './Filter.css'
 
-const FilterBar=({countries,setPage,page})=>{
+const FilterBar=({countries,originalOrder,setPage,page})=>{
     const dispatch=useDispatch();
     /*--------- BUSCADOR POR NOMBRE ---------*/
     const [inputName,setInputName]=useState("");
 
     const changeHandlerName=(event)=>{
-        setInputName(event.target.value)
+        const nombre=event.target.value;
+        const Uppernombre=nombre.replace(/(^\w{1})|(\s+\w{1})/g,pais=>pais.toUpperCase())
+        setInputName(Uppernombre)
     }
 
     const submitHandlerName=(event)=>{
@@ -64,6 +66,7 @@ const FilterBar=({countries,setPage,page})=>{
         order: "none",
     })
     const changeHandlerCheck=async(event)=>{  
+        //countries=[...originalOrder]
         setOrderCountries({
             order: event.target.value,
         })
@@ -73,9 +76,6 @@ const FilterBar=({countries,setPage,page})=>{
         if(orderCountries.order==="z-a") countries.sort((a, b)=>(a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0);
         if(page===1) setPage(page+1)
         else setPage(1)
-        //console.log(countries.map(pais=>pais.population))
-        //console.log(countries.map(pais=>pais.name))
-        //dispatch(populationOrder(countries));
     }
 
     return(
@@ -114,10 +114,10 @@ const FilterBar=({countries,setPage,page})=>{
             <form name="orderCountries">
                 <span>Ordenar Por : </span>
                 <br />
-                <input type="radio" value="asc" name="populationOrder" id="asc" onChange={changeHandlerCheck}/><span>Ascendente </span>
-                <input type="radio" value="des" name="populationOrder" id="des" onChange={changeHandlerCheck}/><span>Descendente </span>
-                <input type="radio" value="a-z" name="populationOrder" id="a-z" onChange={changeHandlerCheck}/><span>A - Z </span>
-                <input type="radio" value="z-a" name="populationOrder" id="z-a" onChange={changeHandlerCheck}/><span>Z - A </span>
+                <input type="radio" value="asc" name="populationOrder" id="asc" onClick={changeHandlerCheck}/><span>Ascendente </span>
+                <input type="radio" value="des" name="populationOrder" id="des" onClick={changeHandlerCheck}/><span>Descendente </span>
+                <input type="radio" value="a-z" name="populationOrder" id="a-z" onClick={changeHandlerCheck}/><span>A - Z </span>
+                <input type="radio" value="z-a" name="populationOrder" id="z-a" onClick={changeHandlerCheck}/><span>Z - A </span>
             </form>
         </div>
     )

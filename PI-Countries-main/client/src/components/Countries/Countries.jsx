@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useSelector } from "react-redux";
-import rootReducer from "../../redux/reducer";
 import Country from "../Country/Country";
 import FilterBar from "../Filter/Filter";
 import Pagination from "../Pagination/Pagination";
@@ -8,6 +7,7 @@ import './Countries.css'
 
 const Countries=()=>{
     const countries=useSelector(state=>state.countries);
+    const originalOrder=[...countries]
     const country=useSelector(state=>state.countryName);
     const countryFiltered=useSelector(state=>state.countryRegion);
     const countriesActivity=useSelector(state=>state.countriesActivity);
@@ -16,12 +16,7 @@ const Countries=()=>{
     /*------ PAGINACION ------*/
     const [page, setPage] = useState(1);
     const porPage=10;
-    //const max=(countries.length)/porPage;
-    var max=0
-    if(countryFiltered.lenght>1) {max=Math.ceil(max=(countryFiltered.length)/porPage)}
-    else if(country==={}) {max=1} 
-    else { max=Math.ceil(max=(countries.length)/porPage);}
-
+    const max=Math.ceil((countries.length)/porPage);
     if(error){
         return(
             <>
@@ -34,7 +29,7 @@ const Countries=()=>{
             /* mapear countries mientras llamas componente country */
             <>
                 <div>
-                    <FilterBar countries={countries} page={page} setPage={setPage} max={max}/>
+                    <FilterBar countries={countries} originalOrder={originalOrder} page={page} setPage={setPage} max={max}/>
                 </div>
                 <div className="flex-container">
                     {

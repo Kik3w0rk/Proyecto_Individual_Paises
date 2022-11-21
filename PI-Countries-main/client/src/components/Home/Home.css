@@ -21,5 +21,13 @@
 }
 
 .backgroud{
-    background-image: url("../../imagenes/Logo.png");
+    background-image: url("../../imagenes/Logo.ico");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: cover;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    overflow: auto;
+    margin: auto;
 }
