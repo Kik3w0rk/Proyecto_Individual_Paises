@@ -62,15 +62,18 @@ const Activity=()=>{
     return(
         <>
             <h3>Introduzca los datos de la actividad turistica que desea agregar</h3>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="activityForm">
                 <label htmlFor="name">Nombre: </label>
                 <input className='' type="text" name="name" onChange={changeHandler}/>
+                <br />
                 <br />
                 <label htmlFor="dificulty" >Dificultad: </label>
                 <input className='' type="number" name="dificulty"onChange={changeHandler} min="1" max="5"/>
                 <br />
+                <br />
                 <label htmlFor="time" >Tiempo: </label>
                 <input className='' type="number" name="time" onChange={changeHandler} min="1"/><span> Horas</span>
+                <br />
                 <br />
                 <label htmlFor="season" >Temporada: </label>
                 <select className='' name="season" onChange={changeHandler}>
@@ -80,6 +83,7 @@ const Activity=()=>{
                     <option value="invierno">Invierno</option>
                 </select>
                 <br />
+                <br />
                 <label htmlFor="paises">Paises: </label>
                 <select name="countryIds" onChange={changeHandlerCountryIds}>
                     <option value="none">Seleccione un Pais</option>
@@ -87,6 +91,7 @@ const Activity=()=>{
                         pais=><option value={pais.id}>{pais.name}</option>
                     )}
                 </select>
+                <br />
                 <br />
                 {allInfo.paisId.map(pais=>{
                     return(
@@ -102,7 +107,9 @@ const Activity=()=>{
                     <span>{subir}</span>
                 </div>
                 <div>
+                    <br />
                     <button type="submit">Subir</button>
+                    <br />
                 </div>
             </form>
         </>
